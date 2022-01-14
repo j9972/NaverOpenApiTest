@@ -12,11 +12,11 @@ function App() {
     <HashRouter>
       <Navigation />
       <Routes>
-        <Route path="/" exact={true} component={Home}></Route>
-        <Route path="/board" component={BoardMain}></Route>
-        <Route path="/board/view/:id" component={BoardView}></Route>
-        <Route path="/movie/detail/:id" component={Detail}></Route>
-        <Route path="/search" exact={true} component={Search}></Route>
+        <Route path="/" exact={true} element={<Home />}></Route>
+        <Route path="/board" element={<BoardMain />}></Route>
+        <Route path="/board/view/:id" element={<BoardView />}></Route>
+        <Route path="/movie/detail/:id" element={<Detail />}></Route>
+        <Route path="/search" exact={true} element={<Search />}></Route>
       </Routes>
     </HashRouter>
   );

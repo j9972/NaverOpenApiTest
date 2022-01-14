@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const port = process.env.PORT || 3001;
+const port = 3001;
 const axios = require("axios");
 
 const ID_KEY = "dPmjFL2OZv1Mm2tnscFu";
@@ -15,7 +15,8 @@ app.use(bodyParser.json());
 app.use("/search", (req, res) => {
   console.log("server-search");
   const word = req.query.query;
-  console.log(word);
+  console.log(req.query);
+  //console.log(word);
   axios
     .get("https://openapi.naver.com/v1/search/movie.json", {
       params: {
@@ -28,12 +29,12 @@ app.use("/search", (req, res) => {
         "Access-Control-Allow-Origin": "*",
       },
     })
-    .then(function (response) {
+    .then((response) => {
       console.log(response.data.items);
       const items = response.data.items;
       res.send({ items: items });
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log(error);
     });
 });

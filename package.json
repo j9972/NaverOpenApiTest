@@ -12,6 +12,7 @@
     "express": "^4.17.2",
     "gh-pages": "^3.2.3",
     "http-proxy-middleware": "^2.0.1",
+    "nodemon": "^2.0.15",
     "npm-run-all": "^4.1.5",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
@@ -22,6 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "devStart": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
