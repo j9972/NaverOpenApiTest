@@ -15,8 +15,7 @@ app.use(bodyParser.json());
 app.use("/search", (req, res) => {
   console.log("server-search");
   const word = req.query.query;
-  console.log(req.query);
-  //console.log(word);
+  console.log("word: ", word, "req: ", req, "req.query :", req.query);
   axios
     .get("https://openapi.naver.com/v1/search/movie.json", {
       params: {

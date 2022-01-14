@@ -33,7 +33,6 @@ class Home extends React.Component {
           </div>
         ) : (
           <div>
-            <h1>Like</h1>
             <div className="movies">
               {movies.map((movie) => (
                 <Movie
