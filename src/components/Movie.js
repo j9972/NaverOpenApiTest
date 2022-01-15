@@ -20,7 +20,7 @@ function Movie({ id, year, title, summary, poster, genres, rating }) {
           },
         }}
       >
-        <img src={poster} alt={title} titlt={title}></img>
+        <img src={poster} alt={title} title={title}></img>
         <div className="movie__data">
           <h3 className="movie__title">{title}</h3>
           <h4 className="movie__rating">{rating}/10</h4>

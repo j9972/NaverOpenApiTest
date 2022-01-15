@@ -8,7 +8,7 @@ const api = axios.create({
   headers: {
     "X-Naver-Client-Id": ID_KEY,
     "X-Naver-Client-Secret": SECRET_KEY,
-    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Origin": "*", // cors 문제 해결
   },
 });
 

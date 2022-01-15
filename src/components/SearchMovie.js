@@ -7,7 +7,7 @@ function SearchMovie({ id, year, title, poster, rating, director, actor }) {
   return (
     <div className="movie">
       <a href={id} target="_blank">
-        <img src={poster} alt={title} titlt={title}></img>
+        <img src={poster} alt={title} title={title}></img>
         <div className="movie__data">
           <h3 className="movie__title">
             {title.replace(/<b>/gi, "").replace(/<\/b>/gi, "")}

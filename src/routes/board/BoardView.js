@@ -1,47 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 
-class BoardView extends React.Component {
-  state = {
-    isLoading: true,
-  };
+function BoardView() {
+  const [isLoading, setIsLoading] = useState(true);
 
-  getBordView = async () => {
-    const { location, history } = this.props;
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const getBordView = async () => {
     console.log(location);
-    console.log(history);
+    console.log(navigate);
 
-    if (location.state === undefined) {
-      history.push("/board");
+    if (location === undefined) {
+      navigate.push("/board");
     } else {
       const {
         data: { boardView, getImageViewList },
       } = await axios.get(`board/view/${location.state.id}`);
       console.log(boardView, getImageViewList);
-      this.setState({ isLoading: false });
+
+      setIsLoading(false);
     }
   };
 
-  componentDidMount() {
-    this.getBordView();
-  }
+  useEffect(() => {
+    getBordView();
+  }, []);
 
-  render() {
-    const { isLoading } = this.state;
-    return (
-      <section className="container">
-        {isLoading ? (
-          <div className="loader">
-            <span className="loader__text">Loading..</span>
-          </div>
-        ) : (
-          <div className="loader">
-            <span className="loader__text">HHHH..</span>
-          </div>
-        )}
-      </section>
-    );
-  }
+  return (
+    <section className="container">
+      {isLoading ? (
+        <div className="loader">
+          <span className="loader__text">Loading..</span>
+        </div>
+      ) : (
+        <div className="loader">
+          <span className="loader__text">HHHH..</span>
+        </div>
+      )}
+    </section>
+  );
 }
 
 export default BoardView;
